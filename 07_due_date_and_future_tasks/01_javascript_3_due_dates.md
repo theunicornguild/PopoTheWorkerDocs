@@ -87,14 +87,12 @@ state = {
     {
       title: "Eat a banana",
       details: "Find a banana. Eat it.",
-      due: moment(),
-      id: 1
+      due: moment()
     },
     {
       title: "Tell The Monkey to get off his monkey butt and do something.",
       details: "",
-      due: moment(),
-      id: 2
+      due: moment()
     }
   ]
 };

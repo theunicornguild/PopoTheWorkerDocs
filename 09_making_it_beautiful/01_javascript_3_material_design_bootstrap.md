@@ -64,7 +64,7 @@ A method to cancel creating a task:
 
 ```jsx
 cancelTask() {
-  this.setState({ taskText: "", taskDetails: "", due: "", labels: [] });
+  this.setState({ taskText: "", taskDetails: "", due: "" });
   this.toggleModal();
 }
 ```
