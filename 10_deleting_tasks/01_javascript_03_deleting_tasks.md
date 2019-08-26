@@ -1,5 +1,40 @@
 Let's allow our users to delete a task. We can add an `X` icon to the task that when clicked would delete the task.
 
+Every task needs to have a unique ID to it. Using this ID we can delete the task that the user wants to delete. In the store, let's add an ID counter and change the default tasks to the following:
+
+```jsx
+idCounter = 3;
+todayTasks = [
+  {
+    title: "Eat a banana",
+    details: "Find a banana. Eat it.",
+    due: moment(),
+    id: 1
+  },
+  {
+    title: "Tell The Monkey to get off his monkey butt and do something.",
+    details: "",
+    due: moment(),
+    id: 2
+  }
+];
+```
+
+Now when adding a new task, we need to set its ID and increment our `idCounter`. In the store, update the `addTask()` method to:
+
+```jsx
+addTask(title, details, due) {
+  let newTask = {
+    title: title,
+    details: details,
+    due: due,
+    id: this.idCounter
+  };
+  this.idCounter++;
+  [...]
+}
+```
+
 MDBootstrap comes with an icon for this: `MDBCloseIcon`. Update your `Task`'s render to:
 
 ```jsx
