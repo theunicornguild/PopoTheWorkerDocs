@@ -1,0 +1,107 @@
+Let's allow our users to delete a task. We can add an `X` icon to the task that when clicked would delete the task.
+
+MDBootstrap comes with an icon for this: `MDBCloseIcon`. Update your `Task`'s render to:
+
+```jsx
+<MDBListGroupItem>
+  <div className="d-flex justify-content-between">
+    <div className="flex-grow-1 p-3 text-wrap">
+      <h5 className="mb-1">{this.props.task.title}</h5>
+      <p className="mb-1">{this.props.task.details}</p>
+    </div>
+    <div>
+      <MDBCloseIcon className="ml-auto" />
+    </div>
+  </div>
+  {dueDate}
+</MDBListGroupItem>
+```
+
+When the user clicks on this icon, we'll use [this modal]() to confirm the delete. Once confirmed, the task will be deleted. So we're gonna need a function that'll trigger the modal, and another to delete the task. Add these in your `Task` component:
+
+```jsx
+state = {
+  modal: false
+};
+deleteTask() {
+  this.toggleDeleteModal();
+  tasksStore.deleteTask(this.props.task.id);
+}
+toggleDeleteModal() {
+  this.setState({ modal: !this.state.modal });
+}
+```
+
+The `deleteTask()` method here will call the store's `deleteTask()` method. Let's create that method! In your `TasksStore` add the following method:
+
+```jsx
+deleteTask = taskId => {
+  // Remove task from today and future tasks.
+  this.todayTasks = this.todayTasks.filter(item => item.id !== taskId);
+  this.futureTasks = this.futureTasks.filter(item => item.id !== taskId);
+
+  // Update local storage.
+  this.updateLocalStorage();
+};
+```
+
+Add the following modal to the `Task` render's return:
+
+```jsx
+<MDBListGroupItem>
+  <MDBModal
+    modalStyle="danger"
+    className="text-white"
+    size="sm"
+    position="top"
+    isOpen={this.state.modal}
+    toggle={this.toggleDeleteModal.bind(this)}
+  >
+    <MDBModalHeader
+      className="text-center"
+      titleClass="w-100"
+      tag="p"
+      toggle={this.toggleDeleteModal.bind(this)}
+    >
+      Are you sure?
+    </MDBModalHeader>
+    <MDBModalBody className="text-center">
+      <MDBIcon icon="times" size="4x" pulse className="animated tada" />
+    </MDBModalBody>
+    <MDBModalFooter className="justify-content-center">
+      <MDBBtn color="danger" onClick={this.deleteTask.bind(this)}>
+        Yes
+      </MDBBtn>
+      <MDBBtn
+        color="danger"
+        outline
+        onClick={this.toggleDeleteModal.bind(this)}
+      >
+        No
+      </MDBBtn>
+    </MDBModalFooter>
+  </MDBModal>
+  [...]
+</MDBListGroupItem>
+```
+
+Don't forget the imports:
+
+```jsx
+import {
+  MDBListGroupItem,
+  MDBCloseIcon,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter,
+  MDBIcon
+} from "mdbreact";
+```
+
+Lastly, to trigger the modal when the `X` icon is clicked, change the `<MDBCloseIcon ... />` to this:
+
+```jsx
+<MDBCloseIcon className="ml-auto" onClick={this.toggleDeleteModal.bind(this)} />
+```
