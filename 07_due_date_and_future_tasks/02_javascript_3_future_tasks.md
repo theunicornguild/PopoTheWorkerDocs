@@ -96,7 +96,7 @@ Then update the `retrieveFromLocalStorage()` method to include future tasks as w
 retrieveFromLocalStorage = () => {
   let tasks = JSON.parse(localStorage.getItem("tasks"));
   if (tasks) {
-    // The following iteration converts a stringified due date to a moment object.
+    // The following iterations converts a stringified due date to a moment object.
     tasks.todayTasks.forEach(task => {
       if (task.due) task.due = moment(task.due);
     });
