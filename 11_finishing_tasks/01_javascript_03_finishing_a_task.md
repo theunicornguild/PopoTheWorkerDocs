@@ -98,3 +98,43 @@ This method will be triggered when the user clicks on the checkbox. Next, let's 
 ```
 
 Voilà! Now you can check a task as done.
+
+---
+
+### Local Storage
+
+Now that we've added `pendingTasks` and `doneTasks`, we need to handle them in local storage. Update your `TasksStore`'s `updateLocalStorage()` and `retrieveFromLocalStorage()` to:
+
+```jsx
+updateLocalStorage = () => {
+  // This next line will stringify the tasks list
+  let tasks = JSON.stringify({
+    pending: this.pendingTasks,
+    todayTasks: this.todayTasks,
+    futureTasks: this.futureTasks,
+    done: this.doneTasks,
+    idCounter: this.idCounter
+  });
+  localStorage.setItem("tasks", tasks);
+};
+retrieveFromLocalStorage = () => {
+  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  if (tasks) {
+    // The following iterations converts a stringified due date to a moment object.
+    tasks.pendingTasks.forEach(task => {
+      if (task.due) task.due = moment(task.due);
+    });
+    tasks.todayTasks.forEach(task => {
+      if (task.due) task.due = moment(task.due);
+    });
+    tasks.futureTasks.forEach(task => {
+      if (task.due) task.due = moment(task.due);
+    });
+    this.pendingTasks = tasks.pending;
+    this.todayTasks = tasks.todayTasks;
+    this.futureTasks = tasks.futureTasks;
+    this.doneTasks = tasks.done;
+    this.idCounter = tasks.idCounter;
+  }
+};
+```

@@ -144,3 +144,29 @@ Lastly, to trigger the modal when the `X` icon is clicked, change the `<MDBClose
 ```jsx
 <MDBCloseIcon className="ml-auto" onClick={this.toggleDeleteModal.bind(this)} />
 ```
+
+---
+
+### Local Storage
+
+We need to handle the `idCounter` along with the tasks in local storage. In your `TasksStore`, update `updateLocalStorage()` and
+`retrieveFromLocalStorage()` to:
+
+```jsx
+updateLocalStorage = () => {
+  // This next line will stringify the tasks list
+  let tasks = JSON.stringify({
+    todayTasks: this.todayTasks,
+    futureTasks: this.futureTasks,
+    idCounter: this.idCounter
+  });
+  localStorage.setItem("tasks", tasks);
+};
+retrieveFromLocalStorage = () => {
+  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  if (tasks) {
+    [...]
+    this.idCounter = tasks.idCounter;
+  }
+};
+```

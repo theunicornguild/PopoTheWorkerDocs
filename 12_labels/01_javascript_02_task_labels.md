@@ -202,3 +202,27 @@ addTask(title, details, due, labels) {
   [...]
 }
 ```
+
+---
+
+### Local Storage
+
+Our local storage needs to handle the label options we have. Update the `updateLocalStorage()` and `retrieveFromLocalStorage()` functions to:
+
+```jsx
+updateLocalStorage = () => {
+  // This next line will stringify the tasks list
+  let tasks = JSON.stringify({
+    [...]
+    labels: this.labelOptions
+  });
+  localStorage.setItem("tasks", tasks);
+};
+retrieveFromLocalStorage = () => {
+  let tasks = JSON.parse(localStorage.getItem("tasks"));
+  if (tasks) {
+    [...]
+    this.labelOptions = tasks.labels;
+  }
+};
+```
