@@ -1,8 +1,6 @@
-The next step is to let the user create their own tasks. You'll see in the demo this form:
+The next step is to let the user create their own tasks. You'll see in the demo a form to create a new task. I know, it looks amazing. You can't handle this much beauty right now, I'm sure the screen is shining like a star. It's dangerous for you. It's ok, we'll work our way up to it.
 
-![Task Creation Form from the Live Demo](https://imgur.com/pf3ZG0w.png)
-
-I know, it looks amazing. You can't handle this much beauty right now, I'm sure the screen is shining like a star. It's dangerous for you. It's ok, we'll work our way up to it.
+Move the trello card for this, "User can add new tasks", to the "`Doing`" list.
 
 Before starting this, go [here](https://reactjs.org/docs/handling-events.html) and read about event handlers. You'll need to know about event handlers to build this form.
 
@@ -170,3 +168,10 @@ Then update the input fields to:
 ```
 
 When adding the task, the title and details in the state will be reset, triggering the re-render, and the value in the input fields will take the values in the state, which have been reset. Voilà! Simple and clean (obscure reference).
+
+We just finished with this feature, let's move the trello card to "`Done`" commit our changes to git:
+
+```bash
+$ git add .
+$ git commit -m "User can now create their own tasks"
+```

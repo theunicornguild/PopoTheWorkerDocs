@@ -208,3 +208,5 @@ class Task extends Component {
 ```
 
 This code uses Bootstrap's [Flexbox](https://mdbootstrap.com/docs/react/utilities/flexbox/). Read more about it to better understand how this task UI is laid out.
+
+Don't forget to commit change to git.

@@ -2,6 +2,8 @@ Our hardworking monkey forgets everything once you refresh the page. Let's have 
 
 There's many ways we can make this happen. We could have the user register an account and store the tasks in the backend using an API to send the tasks data to be stored and retrieved later. But we're gonna use something simpler: [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage). Local Storage will store the tasks data in the browser's session cookies.
 
+Move the trello card "User can go back to their old tasks when reloading the page" from "`Backlog`" to "`Doing`".
+
 Using Local Storage to store our tasks can be split into two parts: 1. Storing new tasks, and 2. Retrieving tasks when the page is loaded.
 
 ### Storing tasks
@@ -54,3 +56,5 @@ componentDidMount() {
 This'll call the `retrieveFromLocalStorage()` method once the page is loaded.
 
 Ta da! Try it! Add some dummy tasks, something you think a workaholic monkey who thinks he's human would do. Refresh the page and see the tasks remain.
+
+Move the trello card to "`Done`", and commit changes to git.

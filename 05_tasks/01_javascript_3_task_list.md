@@ -1,8 +1,8 @@
-The essence of our hardworking Popo is the task list. So let's start off by displaying a list of tasks.
+The essence of our hardworking Popo is the task list. So let's start off by displaying a list of tasks. Peak into the Live Demo to get a feel of what we're working towards.
 
-Here's an example of what we're working towards:
+Since we're about to build the tasks list in our app, this is the trello card "User can view a list of tasks". Let's go ahead and drag that card from the `Backlog` list to the `Doing` list. Here's a gif of me doing it:
 
-![Today's list example](https://i.imgur.com/YZJFod0.png)
+![Drag&Drop trello card](https://imgur.com/ocRCVZJ.gif)
 
 In your `App.js`, replace the following import:
 
@@ -82,3 +82,18 @@ Save file, take a peak at the webpage now...
 ![Task List 1](https://imgur.com/ktDsGfa.png)
 
 Now try adding more tasks in the list, save the file, and you'll see them appear in the page.
+
+Now that we've finished building the tasks list, we can move the card on the trello board from "Doing" to "Done". Here's a how-to gif:
+
+![Drag&Drop Trello Card 2](https://imgur.com/aMgzJFE.gif)
+
+---
+
+### Git
+
+Now is a good moment to commit our changes to the project's repository. Run the following commands to add everything and commit:
+
+```bash
+$ git add .
+$ git commit -m "Tasks list"
+```

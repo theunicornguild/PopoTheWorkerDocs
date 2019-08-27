@@ -1,5 +1,7 @@
 Let's allow our users to delete a task. We can add an `X` icon to the task that when clicked would delete the task.
 
+Move the trello card "User can delete a task" to "`Doing`".
+
 Every task needs to have a unique ID to it. Using this ID we can delete the task that the user wants to delete. In the store, let's add an ID counter and change the default tasks to the following:
 
 ```jsx
@@ -170,3 +172,5 @@ retrieveFromLocalStorage = () => {
   }
 };
 ```
+
+Move the trello card to "`Done`", and commit change to git.

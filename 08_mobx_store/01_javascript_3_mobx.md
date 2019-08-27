@@ -84,3 +84,5 @@ In `TodayList`, change `this.props.tasks` in the render method to `tasksStore.to
 Next, in the `CreateTaskForm`, in the `addTask()` method change `this.props.addTask(...)` to `tasksStore.addTask(...)`.
 
 That's it! Now your project's data have been completely migrated to using MobX.
+
+Don't forget to commit change to git.

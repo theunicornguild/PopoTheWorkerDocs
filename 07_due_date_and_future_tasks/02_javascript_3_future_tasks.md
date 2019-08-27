@@ -1,5 +1,7 @@
 To keep our monkey focused, let's separate the tasks for today from the tasks for the future.
 
+Move the trello cards "User can see a list of future tasks" and "User can see a list of tasks due today" to "`Doing`".
+
 To tell apart the tasks for today and the tasks for the future, change the state of your `App` to:
 
 ```jsx
@@ -113,4 +115,4 @@ retrieveFromLocalStorage = () => {
 
 And there you have it! Our monkey is maturing and growing a human-like perception of time. He can now see the future.
 
-TODO: INSERT MEME-Y GIF OF MONKEY SEEING THE FUTURE
+Move the trello cards to "`Done`", and commit change to git.

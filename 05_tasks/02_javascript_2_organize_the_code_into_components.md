@@ -1,6 +1,6 @@
 Before we can continue, we need to organize our code and files properly.
 
-Instead of diaplying the list of tasks in `App.js`, we'll make another component responsible for the list. We'll call this component `TodayList`. Add the following import in `App.js`:
+Instead of displaying the list of tasks in `App.js`, we'll make another component responsible for the list. We'll call this component `TodayList`. Add the following import in `App.js`:
 
 ```jsx
 import TodayList from "./Components/TodayList";
@@ -46,7 +46,7 @@ class Task extends Component {
 export default Task;
 ```
 
-These blocks of code makes React class components called `TodayList` and `Task`. These components alone by this point don't display anything. Let's make them display the list of tasks in a rudimentary way. Change the render method of `TodayList` to this:
+These blocks of code make React class components called `TodayList` and `Task`. These components alone by this point don't display anything. Let's make them display the list of tasks in a rudimentary way. Change the render method of `TodayList` to this:
 
 ```jsx
 render() {
@@ -68,3 +68,10 @@ render() {
 ```
 
 Now if you save the files and look at the webpage, you'll see nothing has changed. Add tasks to the list of tasks in `App.js`, you'll see they appear on the webpage just like before. That's the expectation. We just cleaned up the code a bit, we didn't add anything.
+
+This is a good point to create a checkpoint in our git repository. Let's commit our changes:
+
+```bash
+$ git add .
+$ git commit -m "Cleaned up and organized the code"
+```
