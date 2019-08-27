@@ -1,6 +1,4 @@
-To keep our monkey focused, let's separate the tasks for today from the tasks for the future. You can look at the Live Demo to see how this looks like:
-
-![Lists](https://i.imgur.com/XLPHkqx.png)
+To keep our monkey focused, let's separate the tasks for today from the tasks for the future.
 
 To tell apart the tasks for today and the tasks for the future, change the state of your `App` to:
 
