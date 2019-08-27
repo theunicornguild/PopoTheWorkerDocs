@@ -33,7 +33,7 @@ Then wrap the return of the `App` component in a `render() {...}` method:
 ```jsx
 render() {
   return (
-      [...]
+    [...]
   );
 }
 ```
