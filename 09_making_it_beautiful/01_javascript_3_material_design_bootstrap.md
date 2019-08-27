@@ -191,8 +191,12 @@ class Task extends Component {
     return (
       <MDBListGroupItem>
         <div className="d-flex justify-content-between">
-          <div className="flex-grow-1 p-3 text-wrap">
-            <h5 className="mb-1">{this.props.task.title}</h5>
+          <div className="d-flex align-items-start flex-column">
+            <div className="d-flex justify-content-start">
+              <div className="flex-grow-1 p-3 text-wrap">
+                <h5 className="mb-1">{this.props.item.task}</h5>
+              </div>
+            </div>
           </div>
         </div>
         <p className="mb-1">{this.props.task.details}</p>

@@ -70,16 +70,20 @@ This method will be triggered when the user clicks on the checkbox. Next, let's 
 <MDBListGroupItem>
   [...]
   <div className="d-flex justify-content-between">
-    <div className="d-flex align-items-center">
-      <MDBIcon
-        far
-        icon="square"
-        size="2x"
-        onClick={this.checkTask.bind(this)}
-      />
-    </div>
-    <div className="flex-grow-1 p-3 text-wrap">
-      <h5 className="mb-1">{this.props.task.title}</h5>
+    <div className="d-flex align-items-start flex-column">
+      <div className="d-flex justify-content-start">
+        <div className="align-self-center">
+          <MDBIcon
+            far
+            icon="square"
+            size="2x"
+            onClick={this.checkTask.bind(this)}
+          />
+        </div>
+        <div className="flex-grow-1 p-3 text-wrap">
+          <h5 className="mb-1">{this.props.task.title}</h5>
+        </div>
+      </div>
     </div>
     <div>
       <MDBCloseIcon

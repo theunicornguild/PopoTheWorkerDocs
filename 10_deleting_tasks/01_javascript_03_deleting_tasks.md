@@ -40,8 +40,12 @@ MDBootstrap comes with an icon for this: `MDBCloseIcon`. Update your `Task`'s re
 ```jsx
 <MDBListGroupItem>
   <div className="d-flex justify-content-between">
-    <div className="flex-grow-1 p-3 text-wrap">
-      <h5 className="mb-1">{this.props.task.title}</h5>
+    <div className="d-flex align-items-start flex-column">
+      <div className="d-flex justify-content-start">
+        <div className="flex-grow-1 p-3 text-wrap">
+          <h5 className="mb-1">{this.props.task.title}</h5>
+        </div>
+      </div>
     </div>
     <div>
       <MDBCloseIcon className="ml-auto" />
