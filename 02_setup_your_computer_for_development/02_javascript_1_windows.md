@@ -1,3 +1,5 @@
+We need yarn in our computers in order to create a react app and do everything we need on it. Here are the steps to setup:
+
 1. Install [Chocolatey](https://chocolatey.org/install).
 2. Run the command line as administrator. You do that by right-clicking on the CMD application, and clicking on "Run As Administrator".
 3. Paste the following command:
