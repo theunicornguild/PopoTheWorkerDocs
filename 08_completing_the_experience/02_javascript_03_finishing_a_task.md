@@ -103,6 +103,26 @@ Voilà! Now you can check a task as done.
 
 ---
 
+### Task Deletion
+
+Now that we have our tasks that are not yet finished in a list of pending tasks, when deleting a task we need to remove it from this list as well. So in your store, update the `deleteTask()` method to:
+
+```javascript
+deleteTask = taskId => {
+  // Remove task from today and future tasks.
+  this.todayTasks = this.todayTasks.filter(item => item.id !== taskId);
+  this.futureTasks = this.futureTasks.filter(item => item.id !== taskId);
+  this.pendingTasks = this.pendingTasks.filter(item => item.id !== taskId);
+
+  // Update local storage.
+  this.updateLocalStorage();
+};
+```
+
+Removing the task from future and today tasks but not removing it from pending will cause problems and errors.
+
+---
+
 ### Local Storage
 
 Now that we've added `pendingTasks` and `doneTasks`, we need to handle them in local storage. Update your `TasksStore`'s `updateLocalStorage()` and `retrieveFromLocalStorage()` to:
@@ -111,7 +131,7 @@ Now that we've added `pendingTasks` and `doneTasks`, we need to handle them in l
 updateLocalStorage = () => {
   // This next line will stringify the tasks list
   let tasks = JSON.stringify({
-    pending: this.pendingTasks,
+    pendingTasks: this.pendingTasks,
     todayTasks: this.todayTasks,
     futureTasks: this.futureTasks,
     done: this.doneTasks,
@@ -132,7 +152,7 @@ retrieveFromLocalStorage = () => {
     tasks.futureTasks.forEach(task => {
       if (task.due) task.due = moment(task.due);
     });
-    this.pendingTasks = tasks.pending;
+    this.pendingTasks = tasks.pendingTasks;
     this.todayTasks = tasks.todayTasks;
     this.futureTasks = tasks.futureTasks;
     this.doneTasks = tasks.done;
