@@ -147,15 +147,13 @@ Most of this code is self-explanatory. For the bits that aren't, go [here](https
 The way our tasks are displayed currently is super ugly and messy. To beautify the list of tasks, we're gonna use [MDBootstrap's List Group](https://mdbootstrap.com/docs/react/components/list-group/#custom-content). So to facilitate it, in your `FutureList` and `TodayList` change the following:
 
 ```jsx
-{
-  tasks;
-}
+{tasks}
 ```
 
 to:
 
 ```jsx
-<MDBListGroup>{list}</MDBListGroup>
+<MDBListGroup>{tasks}</MDBListGroup>
 ```
 
 and import the component: `import { MDBListGroup } from "mdbreact";`

@@ -51,7 +51,7 @@ return (
 );
 ```
 
-Next, copy everything in the "`TodayList.js`" file, and paste it into a new file called "`FutureList.js`" in your "`src/`". Then change any mentions of "Today" to "Future": The class name, the export at the bottom of the file, and the heading in the render.
+Next, copy everything in the "`TodayList.js`" file, and paste it into a new file called "`FutureList.js`" in your "`src/Components/`". Then change any mentions of "Today" to "Future": The class name, the export at the bottom of the file, and the heading in the render.
 
 In your `App.js`, import and render the `FutureList`:
 

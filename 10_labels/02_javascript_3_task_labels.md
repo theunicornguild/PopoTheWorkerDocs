@@ -4,7 +4,7 @@ Let's add labels to our default tasks in `TasksStore`:
 pendingTasks = [
   {
     [...],
-    labels: ["Monkey Stuff"],
+    labels: ["Monkey Stuff", "Banana"],
   },
   {
     [...],
@@ -14,7 +14,7 @@ pendingTasks = [
 todayTasks = [
   {
     [...],
-    labels: ["Monkey Stuff"],
+    labels: ["Monkey Stuff", "Banana"],
   },
   {
     [...],
@@ -23,13 +23,18 @@ todayTasks = [
 ];
 ```
 
-To display a label for a task we're gonna use [Bootstrap's Pill Badges](https://mdbootstrap.com/docs/react/components/badges/#pills). In your `Task`'s render method, add the following code:
+To display a label for a task we're gonna use [Bootstrap's Pill Badges](https://mdbootstrap.com/docs/react/components/badges/#pills). In your `Task.js`, add the following import:
 
 ```jsx
 import {
   [...],
   MDBBadge
 } from "mdbreact";
+```
+
+Then, in your `Task`'s render method, add the following code:
+
+```jsx
 render() {
   let labels;
   if (this.props.task.labels && this.props.task.labels.length > 0) {
