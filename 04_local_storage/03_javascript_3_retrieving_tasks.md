@@ -19,6 +19,8 @@ componentDidMount() {
 }
 ```
 
+`componentDidMount()` is a built-in function that runs only once when the component is being "_mounted_" on the page.
+
 (To learn about `componentDidMount()` properly, you should read and learn from [the source](https://reactjs.org/docs/state-and-lifecycle.html) about lifecycle methods. Here's a cheatsheet diagram offered to us by the generous React developers: [cheat sheet diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).)
 
 This'll call the `retrieveFromLocalStorage()` method once the page is loaded.

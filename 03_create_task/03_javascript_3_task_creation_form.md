@@ -32,7 +32,7 @@ Let's add an input field for the title of the task:
 />
 ```
 
-This element is an input field where once the user types anything in it, what the user types will be stored in the state of this component. An input field for the details:
+This element is an input field where once the user types anything in it, what the user types will be stored in the state of this component. ([read more about `this.setState()` here](https://reactjs.org/docs/react-component.html#setstate).) An input field for the details:
 
 ```jsx
 <textarea
@@ -65,6 +65,8 @@ return (
   </div>
 );
 ```
+
+In React, you can't have sibling elements/components in the render's return. So in this case, we need to wrap them in a `<div>` element so that we're returning only a single element.
 
 Let's display this form... In your `App.js`, add the import `import CreateTaskForm from "./Components/CreateTaskForm";`, then add `<CreateTaskForm />` in the return to render the form. The return will be:
 

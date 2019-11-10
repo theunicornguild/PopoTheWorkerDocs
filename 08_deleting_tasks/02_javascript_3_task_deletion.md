@@ -33,7 +33,7 @@ addTask(title, details, due) {
 }
 ```
 
-MDBootstrap comes with an icon for this: `MDBCloseIcon`. Update your `Task`'s render to:
+MDBootstrap comes with an icon for this: `MDBCloseIcon`. Update your `Task` render's return to:
 
 ```jsx
 <MDBListGroupItem>

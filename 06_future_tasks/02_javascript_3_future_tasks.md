@@ -38,7 +38,7 @@ addTask(title, details, due) {
 }
 ```
 
-The main addition that needs explaining here is this: `if (due && due.isSameOrBefore(moment(), "day"))`. Here we're checking if `due` is defined (so if there's a due date set), and if there is we're checking if the due date is today or in the past by `due.isSameOrBefore(moment(), "day")`. This method is built-into the `MomentJS` library. You can read more about it [here](https://momentjs.com/docs/#/query/is-after/).
+The main addition that needs explaining here is this: `if (due && due.isAfter(moment(), "day"))`. Here we're checking if `due` is defined (so if there's a due date set), and if there is we're checking if the due date is in the future by `due.isAfter(moment(), "day")`. This method is built-in to the `MomentJS` library. You can read more about it [here](https://momentjs.com/docs/#/query/is-after/).
 
 In your `TodayList`'s render method, change the return to:
 

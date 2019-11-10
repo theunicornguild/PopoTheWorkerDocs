@@ -4,7 +4,7 @@ To help us organize our data, install MobX:
 $ yarn add mobx mobx-react
 ```
 
-Create a folder inside `src/` called "`Stores`". In `Stores/`, create a file called "`TasksStore.js`" Everything related to data, we're gonna move to this store. Write the following boilerplate code in this new file:
+Create a folder inside `src/` called "`Stores`". In `Stores/`, create a file called "`TasksStore.js`". Everything related to data, we're gonna move to this store. Write the following boilerplate code in this new file:
 
 ```jsx
 class ToDoStore {}
@@ -14,7 +14,7 @@ const toDoStore = new ToDoStore();
 export default toDoStore;
 ```
 
-The powerful thing about React is how the UI updates whenever the state of a component is updated. MobX allows us to extend that so that all components using certain data get re-render when that data source is updated.
+The powerful thing about React is how the UI updates whenever the state of a component is updated. MobX allows us to extend that so that all components using certain data get re-render when that data source is updated. The store is that data source. ([read more about MobX here](https://mobx.js.org/README.html#core-concepts).)
 
 Right now, the data is stored in the `App`'s state. Let's move it to the `TasksStore.js` file. Change the class definition to:
 
@@ -75,7 +75,7 @@ to:
 export default observer(ToDoList);
 ```
 
-Do the same for the other components.
+Do the same for the other components. This change makes it so that if the data in the store changes the component `ToDoList` will re-render to display the new data.
 
 In `TodayList`, change `this.props.tasks` in the render method to `tasksStore.todayTasks`. In `FutureList` change `this.props.tasks` to `tasksStore.futureTasks`. In your `App`'s `componentDidMount` method, change `this.retrieveFromLocalStorage()` to `tasksStore.retrieveFromLocalStorage()`, and import the store `import tasksStore from "./Stores/TasksStore"`.
 
