@@ -23,5 +23,5 @@ Now is a good moment to commit our changes to the project's repository. Run the 
 ```bash
 $ git add .
 $ git commit -m "Tasks list"
-$ git push
+$ git push -u origin master
 ```
