@@ -18,7 +18,7 @@ state = {
 };
 ```
 
-Now they're in two separate lists. Since we just changed the name in the state for the tasks list, we need to change references to it. Change it's name in the `addTask`, `updateLocalStorage`, `retrieveFromLocalStorage`, and `render` functions.
+Now they're in two separate lists. Since we just changed the name in the state for the tasks list, we need to change references to it. Change its name in the `addTask`, `updateLocalStorage`, `retrieveFromLocalStorage`, and `render` functions.
 
 When we're adding a new task, we need to check if the task's due date is in the future. If it is, then we add it to `futureTasks`. So, change your `App`'s `addTask()` method to:
 
