@@ -7,4 +7,5 @@ Let's move the trello card to "`Done`", commit and push our changes to git:
 ```bash
 $ git add .
 $ git commit -m "User can now create their own tasks"
+$ git push
 ```
