@@ -50,7 +50,7 @@ These blocks of code make React class components called `TodayList` and `Task`. 
 
 ```jsx
 render() {
-  let tasks = this.props.tasks.map(task => <Task task={task} />);
+  let tasks = this.props.tasks.map(task => <Task task={task} key={task.title} />);
   return <div>{tasks}</div>;
 }
 ```

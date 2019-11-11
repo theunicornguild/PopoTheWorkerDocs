@@ -59,7 +59,7 @@ This is a list of two tasks. Later the tasks will be dynamic, but for now we're 
 ```jsx
 render() {
   let tasks_list = this.state.tasks.map(task => (
-    <p>
+    <p key={task.title}>
       {task.title} - {task.details}
     </p>
   ));
@@ -67,6 +67,6 @@ render() {
 }
 ```
 
-In the definition of `tasks_list` we're iterating through the `this.state.tasks` list using the `.map()`. I won't explain everything about the `.map()` method, so [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), read up.
+In the definition of `tasks_list` we're iterating through the `this.state.tasks` list using the `.map()`. We're passing it the unique `key` prop that it requires. Since our tasks don't have unique IDs, we're gonna use the task's title. I won't explain everything about the `.map()` method, so [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), read up.
 
 In the return, we wrote `{tasks_list}`. This is how we render the list of tasks as paragraphs (`<p>` tags) that we defined in the lines above.
