@@ -1,4 +1,6 @@
-Before starting this, go [here](https://reactjs.org/docs/handling-events.html) and read about event handlers. You'll need to know about event handlers to build this form.
+### Event Handlers
+
+Event handlers are functions attached to certain events that might happen. One event is when the user clicks a button, for example. So an event handler is a function that runs when the user clicks a certain button. To learn more, go [here](https://reactjs.org/docs/handling-events.html) and read about event handlers. You'll need to know about event handlers to build this form.
 
 Make a new file in `Components/` called "`CreateTaskForm.js`". This component's state must store the title and details of the task the user is creating. So, write the following in the file:
 
