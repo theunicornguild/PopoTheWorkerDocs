@@ -23,7 +23,7 @@ Now they're in two separate lists. Since we just changed the name in the state f
 When we're adding a new task, we need to check if the task's due date is in the future. If it is, then we add it to `futureTasks`. So, change your `App`'s `addTask()` method to:
 
 ```jsx
-addTask(title, details, due) {
+addTask = (title, details, due) => {
   let newTask = { title: title, details: details, due: due };
   if (due && due.isAfter(moment(), "day")) {
     let tasks = this.state.futureTasks;
@@ -35,7 +35,7 @@ addTask(title, details, due) {
     this.setState({ todayTasks: tasks });
   }
   this.updateLocalStorage();
-}
+};
 ```
 
 The main addition that needs explaining here is this: `if (due && due.isAfter(moment(), "day"))`. Here we're checking if `due` is defined (so if there's a due date set), and if there is we're checking if the due date is in the future by `due.isAfter(moment(), "day")`. This method is built-in to the `MomentJS` library. You can read more about it [here](https://momentjs.com/docs/#/query/is-after/).
@@ -108,3 +108,10 @@ retrieveFromLocalStorage = () => {
   }
 };
 ```
+
+You may run into an issue now that says "`TypeError: Cannot read property 'forEach' of undefined`". This is because in the `retrieveFromLocalStorage()` method we have `tasks.todayTasks.forEach(...)` when the data in local storage don't have `todayTasks`, they just have `tasks`. So to fix this, just clear local storage like we did before:
+
+1. Open up developer tools (`CMD-ALT-I` on Mac)
+2. Open the `Console` tab.
+3. Type "`localStorage.removeItem("tasks")`".
+4. Hit Enter, and refresh the page.

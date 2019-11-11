@@ -2,4 +2,4 @@ And there you have it! Our monkey is maturing and growing a human-like perceptio
 
 Go ahead and try adding new tasks with a due date set a future day. You should be able to see it in the Future list.
 
-Move the trello cards to "`Done`", and commit change to git.
+Move the trello cards to "`Done`", commit changes, and push to git.
