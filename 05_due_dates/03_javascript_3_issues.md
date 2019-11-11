@@ -2,7 +2,7 @@ Implementing due dates caused some issues to pop up throughout our little site. 
 
 ### Default tasks don't have a moment object due date
 
-Give the default tasks in `App`'s state the current date and time as the default due date. First, import moment:
+Give the default tasks in `App`'s state the current date and time as the default due date. First, import `moment` in your `App.js`:
 
 ```jsx
 import moment from "moment";

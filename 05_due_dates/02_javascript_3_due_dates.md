@@ -39,16 +39,16 @@ Running this now will show you something that looks like it just escaped from a 
 Next, update the `addTask()` method in `CreateTaskForm` to:
 
 ```jsx
-addTask() {
+addTask = () => {
   this.props.addTask(this.state.title, this.state.details, this.state.due);
   this.setState({ title: "", details: "", due: "" });
-}
+};
 ```
 
 Update the `addTask()` method in `App` to include the due date:
 
 ```jsx
-addTask(title, details, due) {
+addTask = (title, details, due) => {
   let newTask = { title: title, details: details, due: due };
   [...]
 }
