@@ -55,7 +55,7 @@ render() {
 }
 ```
 
-and add the import `import Task from "./Task";` Then in the `Task` component, change the render to:
+and add the import `import Task from "./Task";`. `this.props.tasks` is how we can access the array of tasks we're passing to this component from `App`. Then in the `Task` component, change the render to:
 
 ```jsx
 render() {
