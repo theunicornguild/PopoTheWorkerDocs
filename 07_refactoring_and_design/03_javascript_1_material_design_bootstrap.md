@@ -15,17 +15,13 @@ import "mdbreact/dist/css/mdb.css";
 First thing to do is to use a container. In `App.js`, import this: `import { MDBContainer } from "mdbreact";` and in the render's return, change this:
 
 ```jsx
-<div className="App">
-  [...]
-</div>
+<div className="App">[...]</div>
 ```
 
 to:
 
 ```jsx
-<MDBContainer>
-  [...]
-</MDBContainer>
+<MDBContainer>[...]</MDBContainer>
 ```
 
 We're gonna completely rework our task creation form. We'll have a button that once clicked will display a modal. On that modal will be the form with the input fields and submit button. We're gonna use a modified version of [this modal from MDBootstrap](https://mdbootstrap.com/docs/react/modals/basic/#simple-contact) (Click on "Examples & Customization", then on the right side click on "Simple modal contact" to see it).
@@ -66,7 +62,7 @@ A method to cancel creating a task:
 
 ```jsx
 cancelTask = () => {
-  this.setState({ taskText: "", taskDetails: "", due: "" });
+  this.setState({ title: "", details: "", due: "" });
   this.toggleModal();
 };
 ```
@@ -77,7 +73,7 @@ And lastly, a method to add a task:
 addTask = () => {
   if (this.state.title) {
     tasksStore.addTask(this.state.title, this.state.details, this.state.due);
-    this.setState({ taskText: "", taskDetails: "", due: "" });
+    this.setState({ title: "", details: "", due: "" });
     this.toggleModal();
   }
 };
@@ -164,7 +160,9 @@ Most of this code is self-explanatory, take some time to read it and understand 
 The way our tasks are displayed currently is super ugly and messy. To beautify the list of tasks, we're gonna use [MDBootstrap's List Group](https://mdbootstrap.com/docs/react/components/list-group/#custom-content). So to facilitate it, in your `FutureList` and `TodayList` change the following:
 
 ```jsx
-{tasks}
+{
+  tasks;
+}
 ```
 
 to:
