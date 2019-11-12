@@ -54,7 +54,21 @@ import { decorate, observable } from "mobx";
 import moment from "moment";
 ```
 
-Lastly, our components used to receive everything they needed as props from `App`. Now, with MobX, they're interact directly with the store. So remove all props sent to our components in `App`'s render method. Let's make our components use the store...
+Lastly, our components used to receive everything they needed as props from `App`. Now, with MobX, they're interact directly with the store. So remove all props sent to our components in `App`'s render method. Your `App`'s render method should look like this:
+
+```jsx
+render() {
+  return (
+    <div className="App">
+      <CreateTaskForm />
+      <TodayList />
+      <FutureList />
+    </div>
+  );
+}
+```
+
+Let's make our components use the store...
 
 Add the following imports in `Task.js`, `TodayList.js`, `FutureList.js`, and `CreateTaskForm.js`:
 
