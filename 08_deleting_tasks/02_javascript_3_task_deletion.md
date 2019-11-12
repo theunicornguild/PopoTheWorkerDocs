@@ -18,10 +18,10 @@ todayTasks = [
 ];
 ```
 
-Now when adding a new task, we need to set its ID and increment our `idCounter`. In the store, update the `addTask()` method to:
+Now when adding a new task, we need to set its ID and increment our `idCounter`. In the store, replacing the `let newTask = ...` line, update the `addTask()` method to:
 
 ```jsx
-addTask(title, details, due) {
+addTask = (title, details, due) => {
   let newTask = {
     title: title,
     details: details,
@@ -30,7 +30,7 @@ addTask(title, details, due) {
   };
   this.idCounter++;
   [...]
-}
+};
 ```
 
 MDBootstrap comes with an icon for this: `MDBCloseIcon`. Update your `Task` render's return to:
@@ -54,19 +54,19 @@ MDBootstrap comes with an icon for this: `MDBCloseIcon`. Update your `Task` rend
 </MDBListGroupItem>
 ```
 
-When the user clicks on this icon, we'll use [this modal]() to confirm the delete. Once confirmed, the task will be deleted. So we're gonna need a function that'll trigger the modal, and another to delete the task. Add these in your `Task` component:
+When the user clicks on this icon, we'll use another modal to confirm the delete. Once confirmed, the task will be deleted. So we're gonna need a function that'll trigger the modal, and another to delete the task. Add these in your `Task` component:
 
 ```jsx
 state = {
   modal: false
 };
-deleteTask() {
+deleteTask = () => {
   this.toggleDeleteModal();
   tasksStore.deleteTask(this.props.task.id);
-}
-toggleDeleteModal() {
+};
+toggleDeleteModal = () => {
   this.setState({ modal: !this.state.modal });
-}
+};
 ```
 
 The `deleteTask()` method here will call the store's `deleteTask()` method. Let's create that method! In your `TasksStore` add the following method:
@@ -140,8 +140,10 @@ import {
 Lastly, to trigger the modal when the `X` icon is clicked, change the `<MDBCloseIcon ... />` to this:
 
 ```jsx
-<MDBCloseIcon className="ml-auto" onClick={this.toggleDeleteModal.bind(this)} />
+<MDBCloseIcon className="ml-auto" onClick={this.toggleDeleteModal} />
 ```
+
+If you have existing tasks that don't have unique IDs, deleting a task now will delete all of them. But once that happens, every new task will have a unique ID, then deleting a task will only delete that task.
 
 ---
 
