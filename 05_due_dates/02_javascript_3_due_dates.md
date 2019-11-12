@@ -40,8 +40,10 @@ Next, update the `addTask()` method in `CreateTaskForm` to:
 
 ```jsx
 addTask = () => {
-  this.props.addTask(this.state.title, this.state.details, this.state.due);
-  this.setState({ title: "", details: "", due: "" });
+  if (this.state.title) {
+    this.props.addTask(this.state.title, this.state.details, this.state.due);
+    this.setState({ title: "", details: "", due: "" });
+  }
 };
 ```
 
