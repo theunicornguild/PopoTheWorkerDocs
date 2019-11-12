@@ -21,7 +21,7 @@ doneTasks = [];
 Update the `addTask()` method to push the new task to the pending tasks as well:
 
 ```jsx
-addTask(title, details, due) {
+addTask = (title, details, due) => {
   let newTask = {
     title: title,
     details: details,
@@ -31,7 +31,7 @@ addTask(title, details, due) {
   this.idCounter++;
   this.pendingTasks.push(newTask);
   [...]
-}
+};
 ```
 
 We need a method that'll check a task as finished, removing it from the pending and today/future lists and adding it to the done list. Add this method to your `TasksStore`:
@@ -57,9 +57,9 @@ checkTask = taskId => {
 Moving over to `Task`, add this method:
 
 ```jsx
-checkTask() {
+checkTask = () => {
   tasksStore.checkTask(this.props.task.id);
-}
+};
 ```
 
 This method will be triggered when the user clicks on the checkbox. Next, let's add the checkbox! Update the render's return to include the checkbox icon:
@@ -156,3 +156,7 @@ retrieveFromLocalStorage = () => {
   }
 };
 ```
+
+---
+
+If you get the error "`TypeError: Cannot read property 'forEach' of undefined`", clear the local storage like we did before. That's because in `retrieveFromLocalStorage()` we have `tasks.pendingTasks.forEach(...)`. This `.pendingTasks` is from local storage, which doesn't have "`pendingTasks`" yet.
