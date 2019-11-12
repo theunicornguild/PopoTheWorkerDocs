@@ -15,16 +15,20 @@ import "mdbreact/dist/css/mdb.css";
 First thing to do is to use a container. In `App.js`, import this: `import { MDBContainer } from "mdbreact";` and in the render's return, change this:
 
 ```jsx
-<div className="App">[...]</div>
+<div className="App">
+  [...]
+</div>
 ```
 
 to:
 
 ```jsx
-<MDBContainer>[...]</MDBContainer>
+<MDBContainer>
+  [...]
+</MDBContainer>
 ```
 
-We're gonna completely rework our task creation form. We'll have a button that once clicked will display a modal. On that modal will be the form with the input fields and submit button. We're gonna use a modified version of [this modal from MDBootstrap](https://mdbootstrap.com/docs/react/modals/basic/#simple-contact).
+We're gonna completely rework our task creation form. We'll have a button that once clicked will display a modal. On that modal will be the form with the input fields and submit button. We're gonna use a modified version of [this modal from MDBootstrap](https://mdbootstrap.com/docs/react/modals/basic/#simple-contact) (Click on "Examples & Customization", then on the right side click on "Simple modal contact" to see it).
 
 ```jsx
 <MDBBtn ...>
@@ -53,30 +57,30 @@ The code for this modal consists of four main parts:
 We're gonna need a method to toggle the modal on/off, so add this to your `CreateTaskForm` component:
 
 ```jsx
-toggleModal() {
+toggleModal = () => {
   this.setState({ modal: !this.state.modal });
-}
+};
 ```
 
 A method to cancel creating a task:
 
 ```jsx
-cancelTask() {
+cancelTask = () => {
   this.setState({ taskText: "", taskDetails: "", due: "" });
   this.toggleModal();
-}
+};
 ```
 
 And lastly, a method to add a task:
 
 ```jsx
-addTask() {
+addTask = () => {
   if (this.state.title) {
     tasksStore.addTask(this.state.title, this.state.details, this.state.due);
     this.setState({ taskText: "", taskDetails: "", due: "" });
     this.toggleModal();
   }
-}
+};
 ```
 
 We also need to add a variable to our state. Update `CreateTaskForm`'s state to:
@@ -140,7 +144,20 @@ Change your render method's return to this:
 </div>
 ```
 
-Most of this code is self-explanatory. For the bits that aren't, go [here](https://mdbootstrap.com/docs/react/modals/basic/#docsTabsAPI) and read about the API for the modal to learn more about what they do.
+Add these imports on top of your `CreateTaskForm.js` file:
+
+```jsx
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalHeader,
+  MDBModalBody,
+  MDBInput,
+  MDBModalFooter
+} from "mdbreact";
+```
+
+Most of this code is self-explanatory, take some time to read it and understand how it works. For the bits that aren't, go [here](https://mdbootstrap.com/docs/react/modals/basic/#docsTabsAPI) and read about the API for the modal to learn more about what they do.
 
 ---
 
@@ -190,7 +207,7 @@ class Task extends Component {
           <div className="d-flex align-items-start flex-column">
             <div className="d-flex justify-content-start">
               <div className="flex-grow-1 p-3 text-wrap">
-                <h5 className="mb-1">{this.props.task.item}</h5>
+                <h5 className="mb-1">{this.props.task.title}</h5>
               </div>
             </div>
           </div>
