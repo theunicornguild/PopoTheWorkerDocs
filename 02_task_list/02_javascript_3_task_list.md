@@ -1,4 +1,11 @@
-In your `App.js`, replace the following import:
+In your `App.js`, remove the following imports:
+
+```jsx
+import logo from "./logo.svg";
+import "./App.css";
+```
+
+Then replace the following import:
 
 ```jsx
 import React from "react";
