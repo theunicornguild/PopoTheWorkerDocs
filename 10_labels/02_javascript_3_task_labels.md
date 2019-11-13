@@ -56,13 +56,19 @@ Then down in the return of the render method, update the JSX to include the labe
 <div className="d-flex justify-content-between">
   <div className="d-flex align-items-start flex-column">
     <div className="flex-row">{labels}</div>
-    <div className="d-flex justify-content-start">[...]</div>
+    <div className="d-flex justify-content-start">
+      [...]
+    </div>
   </div>
-  <div>[...]</div>
+  <div>
+    [...]
+  </div>
 </div>
 ```
 
 Looks nice doesn't it? You can try adding multiple labels to a task and see how it looks!
+
+If you can't see any labels, clear local storage and refresh the page, so you can see the default tasks that have labels.
 
 ---
 
@@ -151,7 +157,7 @@ to:
     value: "Banana",
     label: "Banana"
   }
-];
+]
 ```
 
 Back to `CreateTaskForm`. Let's add the `labels` in the state:
@@ -169,15 +175,15 @@ state = {
 Lastly, let's add the `labelSelect()` method:
 
 ```jsx
-labelSelect(value, action) {
+labelSelect = (value, action) => {
   this.setState({ labels: value });
-}
+};
 ```
 
 We need to update the `addTask()` method in `CreateTaskForm` so that it includes labels:
 
 ```jsx
-addTask() {
+addTask = () => {
   if (this.state.title) {
     tasksStore.addTask(
       this.state.title,
@@ -188,13 +194,13 @@ addTask() {
     this.setState({ title: "", details: "", due: "", labels: [] });
     this.toggleModal();
   }
-}
+};
 ```
 
 The `addTask()` method in `TasksStore` needs to handle labels as well:
 
 ```jsx
-addTask(title, details, due, labels) {
+addTask = (title, details, due, labels) => {
   let newTask = {
     title: title,
     details: details,
@@ -203,7 +209,7 @@ addTask(title, details, due, labels) {
     id: this.idCounter
   };
   [...]
-}
+};
 ```
 
 ---
